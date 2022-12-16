@@ -23,12 +23,16 @@ public class AgendaServicio {
         return agendaRepositorio.findAll();
     }
 
-    public Optional <AgendaModelo> getAgendaById(String id){
-        Optional <AgendaModelo> agenda = agendaRepositorio.findById(id);
-        Optional <AutoModelo> auto = autoRepositorio.findById(agenda.get().getId_auto());
-        agenda.get().setMarcaauto(id);(auto.get().getMarca());
-        agenda.get().setModelo(auto.get().getModelo());
-        return agenda;
+    // public Optional <AgendaModelo> getAgendaById(String id){
+    //     Optional <AgendaModelo> agenda = agendaRepositorio.findById(id);
+    //     Optional <AutoModelo> auto = autoRepositorio.findById(agenda.get().getId_auto());
+    //     agenda.get().setMarcaauto(id);(auto.get().getMarca());
+    //     agenda.get().setModelo(auto.get().getModelo());
+    //     return agenda;
+    // }
+
+    public Optional<AgendaModelo> getAgendaById(String id) {
+        return agendaRepositorio.findById(id);
     }
     
     public AgendaModelo saveAgenda(AgendaModelo agenda){

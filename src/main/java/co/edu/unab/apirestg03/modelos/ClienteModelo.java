@@ -24,5 +24,5 @@ public class ClienteModelo {
     private long ndocumento;
     // private LocalDate fnacimiento;
     // private List<String> telefonos;
-    private Object direccion;    //{ciudad:"Bucaramanga",departamento:"Santander"}
+    private String direccion;    //{ciudad:"Bucaramanga",departamento:"Santander"}
 }
