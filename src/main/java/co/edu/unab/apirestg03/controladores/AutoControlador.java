@@ -20,7 +20,7 @@ import co.edu.unab.apirestg03.servicios.AutoServicio;
 
 @RestController
 @RequestMapping("/autos")
-@CrossOrigin(origins = "*" , methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE})
+@CrossOrigin(origins = "*")
 public class AutoControlador {
     @Autowired
     AutoServicio autoServicio;

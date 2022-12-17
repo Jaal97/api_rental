@@ -22,7 +22,7 @@ import co.edu.unab.apirestg03.servicios.ClienteServicio;
 
 @RestController
 @RequestMapping("/clientes")
-@CrossOrigin(origins = "*" , methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE})
+@CrossOrigin(origins = "*")
 public class ClienteControlador {
     @Autowired
     ClienteServicio clienteServicio;

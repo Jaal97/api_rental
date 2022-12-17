@@ -20,7 +20,7 @@ import co.edu.unab.apirestg03.servicios.AgendaServicio;
 
 @RestController
 @RequestMapping("/agendas")
-@CrossOrigin(origins = "*" , methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE})
+@CrossOrigin(origins = "*")
 public class AgendaControlador {
     @Autowired
     AgendaServicio agendaServicio;
