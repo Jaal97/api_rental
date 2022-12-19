@@ -19,13 +19,17 @@ public class ClienteServicio {
     public String guardarcliente(ClienteModelo cliente) {
         cliente.setNombre(cliente.getNombre().toLowerCase());
         cliente.setApellido(cliente.getApellido().toLowerCase());
-        boolean estado=cliente.getId() == null || !clienteRepositorio.existsById(cliente.getId());
+        boolean estado = cliente.getId() == null || !clienteRepositorio.existsById(cliente.getId());
         clienteRepositorio.save(cliente);
         if (estado) {
             return "Se Guardo El cliente";
         } else {
             return "Se Actualizo el cliente";
         }
+    }
+
+    public ClienteModelo saveCliente(ClienteModelo cliente) {
+        return clienteRepositorio.save(cliente);
     }
 
     public List<ClienteModelo> getListclientesOrden() {
@@ -38,24 +42,24 @@ public class ClienteServicio {
         return clienteRepositorio.findById(id);
     }
 
-    public List<ClienteModelo> getClientesByApellido(String apellido){
-        return clienteRepositorio.findByApellido(apellido);
-    }
+    // public List<ClienteModelo> getClientesByApellido(String apellido){
+    // return clienteRepositorio.findByApellido(apellido);
+    // }
 
-    public List<ClienteModelo> clientesByCiudad(String ciudad){
-        return clienteRepositorio.buscarPorCiudad(ciudad);
-    }
+    // public List<ClienteModelo> clientesByCiudad(String ciudad){
+    // return clienteRepositorio.buscarPorCiudad(ciudad);
+    // }
 
-    public List<ClienteModelo>clientePorFechaMenor(LocalDate fecha){
-        return clienteRepositorio.buscarClientesMenoresDeFecha(fecha);
-    }
+    // public List<ClienteModelo>clientePorFechaMenor(LocalDate fecha){
+    // return clienteRepositorio.buscarClientesMenoresDeFecha(fecha);
+    // }
 
     public ClienteModelo update(ClienteModelo cliente) {
-        ClienteModelo clienteToUpdate= new ClienteModelo();
-        if(clienteRepositorio.existsById(cliente.getId())){
+        ClienteModelo clienteToUpdate = new ClienteModelo();
+        if (clienteRepositorio.existsById(cliente.getId())) {
             clienteToUpdate = cliente;
             clienteRepositorio.save(clienteToUpdate);
-        }        
+        }
         return clienteToUpdate;
     }
 

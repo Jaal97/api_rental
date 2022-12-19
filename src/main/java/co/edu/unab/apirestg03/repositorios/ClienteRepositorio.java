@@ -8,18 +8,20 @@ import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import co.edu.unab.apirestg03.modelos.ClienteModelo;
+
 @Repository
 public interface ClienteRepositorio extends MongoRepository<ClienteModelo, String> {
-    
-    List<ClienteModelo> findByApellido(String apellido); //keywords for query methods
-    
-    @Query("{'direccion.ciudad':?0}")
-    List<ClienteModelo> buscarPorCiudad(String ciudad);
 
-    @Query("{fnacimiento:{$lt:?0}}")
-    List<ClienteModelo>buscarClientesMenoresDeFecha(LocalDate fecha);
+    // List<ClienteModelo> findByApellido(String apellido); //keywords for query
+    // methods
 
-    //List<PacienteModelo>findByFnacimientoBefore(LocalDate date);//keywords for query methods
+    // @Query("{'direccion.ciudad':?0}")
+    // List<ClienteModelo> buscarPorCiudad(String ciudad);
 
+    // @Query("{fnacimiento:{$lt:?0}}")
+    // List<ClienteModelo>buscarClientesMenoresDeFecha(LocalDate fecha);
+
+    // List<PacienteModelo>findByFnacimientoBefore(LocalDate date);//keywords for
+    // query methods
 
 }

@@ -28,33 +28,42 @@ public class ClienteControlador {
     ClienteServicio clienteServicio;
 
     @GetMapping("/all")
-    public List<ClienteModelo> getAllClientesOrden(){
+    public List<ClienteModelo> getAllClientesOrden() {
         return clienteServicio.getListclientesOrden();
     }
 
     @GetMapping("/{id}")
-    public Optional<ClienteModelo> findClienteByID(@PathVariable("id") String id){
+    public Optional<ClienteModelo> findClienteByID(@PathVariable("id") String id) {
         return clienteServicio.getClienteById(id);
     }
 
-    @GetMapping("/query") // ejemplo: http://localhost:8080/pacientes/query?apellido=mejia
-    public List<ClienteModelo> getClientesByApellido(@RequestParam("apellido") String apellido){
-        return clienteServicio.getClientesByApellido(apellido);
-    }
+    // @GetMapping("/query") // ejemplo:
+    // http://localhost:8080/pacientes/query?apellido=mejia
+    // public List<ClienteModelo> getClientesByApellido(@RequestParam("apellido")
+    // String apellido){
+    // return clienteServicio.getClientesByApellido(apellido);
+    // }
 
-    @GetMapping("/fecha/query")
-    public List<ClienteModelo> getClienteByFechaMenor(@RequestParam("fecha") String fecha){
-        LocalDate localDate = LocalDate.parse(fecha);
-        return clienteServicio.clientePorFechaMenor(localDate);
-    }
-    @GetMapping("/ciudad/{ciudad}")
-    public List<ClienteModelo> listClientesCiudad(@PathVariable("ciudad") String ciudad){
-        return clienteServicio.clientesByCiudad(ciudad);
-    }
+    // @GetMapping("/fecha/query")
+    // public List<ClienteModelo> getClienteByFechaMenor(@RequestParam("fecha")
+    // String fecha){
+    // LocalDate localDate = LocalDate.parse(fecha);
+    // return clienteServicio.clientePorFechaMenor(localDate);
+    // }
+    // @GetMapping("/ciudad/{ciudad}")
+    // public List<ClienteModelo> listClientesCiudad(@PathVariable("ciudad") String
+    // ciudad){
+    // return clienteServicio.clientesByCiudad(ciudad);
+    // }
+
+    // @PostMapping("/save")
+    // public String saveCliente(@RequestBody ClienteModelo cliente){
+    // return clienteServicio.guardarcliente(cliente);
+    // }
 
     @PostMapping("/save")
-    public String saveCliente(@RequestBody ClienteModelo cliente){
-        return clienteServicio.guardarcliente(cliente);
+    public ClienteModelo saveCliente(@RequestBody ClienteModelo cliente) {
+        return clienteServicio.saveCliente(cliente);
     }
 
     @PutMapping("/update")
@@ -63,7 +72,7 @@ public class ClienteControlador {
     }
 
     @DeleteMapping("/{id}")
-    public String deleteAgendaById(@PathVariable("id") String id){
+    public String deleteAgendaById(@PathVariable("id") String id) {
         return clienteServicio.clienteDeleteById(id);
     }
 
